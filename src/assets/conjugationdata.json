@@ -1,0 +1,221 @@
+{
+    "verbs": [
+        {
+            "kanji": "食べる",
+            "hiragana": "たべる",
+            "english": "to eat",
+            "te_form": "たべて",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "見る",
+            "hiragana": "みる",
+            "english": "to see",
+            "te_form": "みて",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "行く",
+            "hiragana": "いく",
+            "english": "to go",
+            "te_form": "いって",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "来る",
+            "hiragana": "くる",
+            "english": "to come",
+            "te_form": "きて",
+            "type": "irregular"
+        },
+        {
+            "kanji": "する",
+            "hiragana": "する",
+            "english": "to do",
+            "te_form": "して",
+            "type": "する"
+        },
+        {
+            "kanji": "飲む",
+            "hiragana": "のむ",
+            "english": "to drink",
+            "te_form": "のんで",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "書く",
+            "hiragana": "かく",
+            "english": "to write",
+            "te_form": "かいて",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "読む",
+            "hiragana": "よむ",
+            "english": "to read",
+            "te_form": "よんで",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "聞く",
+            "hiragana": "きく",
+            "english": "to listen",
+            "te_form": "きいて",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "買う",
+            "hiragana": "かう",
+            "english": "to buy",
+            "te_form": "かって",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "話す",
+            "hiragana": "はなす",
+            "english": "to speak",
+            "te_form": "はなして",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "教える",
+            "hiragana": "おしえる",
+            "english": "to teach",
+            "te_form": "おしえて",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "作る",
+            "hiragana": "つくる",
+            "english": "to make",
+            "te_form": "つくって",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "使う",
+            "hiragana": "つかう",
+            "english": "to use",
+            "te_form": "つかって",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "走る",
+            "hiragana": "はしる",
+            "english": "to run",
+            "te_form": "はしって",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "泳ぐ",
+            "hiragana": "およぐ",
+            "english": "to swim",
+            "te_form": "およいで",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "立つ",
+            "hiragana": "たつ",
+            "english": "to stand",
+            "te_form": "たって",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "寝る",
+            "hiragana": "ねる",
+            "english": "to sleep",
+            "te_form": "ねて",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "起きる",
+            "hiragana": "おきる",
+            "english": "to wake up",
+            "te_form": "おきて",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "帰る",
+            "hiragana": "かえる",
+            "english": "to return",
+            "te_form": "かえって",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "分かる",
+            "hiragana": "わかる",
+            "english": "to understand",
+            "te_form": "わかって",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "知る",
+            "hiragana": "しる",
+            "english": "to know",
+            "te_form": "しって",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "会う",
+            "hiragana": "あう",
+            "english": "to meet",
+            "te_form": "あって",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "待つ",
+            "hiragana": "まつ",
+            "english": "to wait",
+            "te_form": "まって",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "生まれる",
+            "hiragana": "うまれる",
+            "english": "to be born",
+            "te_form": "うまれて",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "なる",
+            "hiragana": "なる",
+            "english": "to become",
+            "te_form": "なって",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "使える",
+            "hiragana": "つかえる",
+            "english": "to be able to use",
+            "te_form": "つかえて",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "来る",
+            "hiragana": "くる",
+            "english": "to come",
+            "te_form": "きて",
+            "type": "irregular"
+        },
+        {
+            "kanji": "する",
+            "hiragana": "する",
+            "english": "to do",
+            "te_form": "して",
+            "type": "する"
+        },
+        {
+            "kanji": "入る",
+            "hiragana": "はいる",
+            "english": "to enter",
+            "te_form": "はいて",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "笑う",
+            "hiragana": "わらう",
+            "english": "to laugh",
+            "te_form": "わらって",
+            "type": "う-verb"
+        }
+    ]
+}

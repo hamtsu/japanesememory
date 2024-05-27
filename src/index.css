@@ -26,3 +26,27 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #737373;
 }
+
+
+@layer components {
+    input[type=range] {
+      @apply appearance-none bg-transparent w-full;
+    }
+  
+    input[type=range]::-webkit-slider-runnable-track {
+      @apply  bg-black/50 rounded-full h-[4px];
+    }
+  
+    input[type=range]::-moz-range-track {
+      @apply bg-black/50 rounded-full h-[4px];
+    }
+  
+    input[type=range]::-ms-track {
+      @apply bg-black/50 rounded-full h-[4px];
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+        @apply appearance-none h-5 w-5 rounded-xl bg-neutral-900 mt-[-8px]
+    }
+  
+  }

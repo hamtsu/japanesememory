@@ -38,6 +38,7 @@
 					self.render();
 				}
 			});
+
 		}
 	};
 
@@ -527,6 +528,56 @@
 
 		return data;
 	}
+
+	// ADDED FUNCTION TO REMOVE DMAK INSTANCE
+	Dmak.fn.destroy = function () {
+
+		function assign(source, replacement) {
+			if (arguments.length !== 2) {
+				throw new Error("Missing arguments in assign function");
+			}
+	
+			for (var key in source) {
+				if (replacement.hasOwnProperty(key)) {
+					source[key] = (typeof replacement[key] === "object") ? assign(source[key], replacement[key]) : replacement[key];
+				}
+			}
+			return source;
+		}
+
+		function clone(object) {
+			if (object === null || typeof object !== "object") {
+				return object;
+			}
+	
+			var temp = object.constructor(); // give temp the original object's constructor
+			for (var key in object) {
+				temp[key] = clone(object[key]);
+			}
+	
+			return temp;
+		}
+	
+		// Clear all timeouts
+		for (var type in this.timeouts) {
+			for (var i = 0; i < this.timeouts[type].length; i++) {
+				clearTimeout(this.timeouts[type][i]);
+			}
+			this.timeouts[type] = [];
+		}
+
+		// Remove all Raphael papers
+		for (var i = 0; i < this.papers.length; i++) {
+			this.papers[i].remove();
+		}
+		this.papers = [];
+
+		// Reset pointer and strokes
+		this.pointer = 0;
+		this.strokes = [];
+		this.options = null;
+		this.text = null;
+	};
 
 	window.DmakLoader = DmakLoader;
 }());

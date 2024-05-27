@@ -9,7 +9,7 @@ type ButtonProps = {
     padding?: string
 }
 
-type ButtonType = "primary" | "secondary" | "close" | "success" | "error" | "secret" | "secret-error" | "secret-success" | "warning"
+type ButtonType = "primary" | "secondary" | "close" | "success" | "error" | "secret" | "secret-error" | "secret-success" | "warning" | "secret-kanji" | "sidebar" | "sidebar-current"
 
 const Button: FC<ButtonProps> = ({ type, children, onClick, disabled, className, padding }) => {
     switch (type.toLowerCase()) {
@@ -83,6 +83,16 @@ const Button: FC<ButtonProps> = ({ type, children, onClick, disabled, className,
                 </button>
             )
         break;
+        case "secret-kanji":
+            return (
+                <button onClick={onClick} className={`${className} ${padding ? padding : 'p-2 px-3'} rounded-md text-gray-700 transition-all 
+                    active:bg-slate-400 hover:bg-slate-300 hover:text-slate-100 dark:active:bg-neutral-600 dark:hover:bg-neutral-700 hover:text-opacity-100 dark:hover:text-opacity-100
+                    ${disabled ? 'pointer-events-none cursor-not-allowed text-opacity-20 dark:text-opacity-20' : 'bg-transparent text-opacity-60 dark:text-opacity-60'} `}
+                >
+                    {children}
+                </button>
+            )
+        break;
         case "secret-error":
             return (
                 <button onClick={onClick} className={`${className} ${padding ? padding : 'p-2 px-3'} rounded-md text-gray-700 dark:text-slate-100 transition-all 
@@ -97,6 +107,26 @@ const Button: FC<ButtonProps> = ({ type, children, onClick, disabled, className,
             return (
                 <button onClick={onClick} className={`${className} ${padding ? padding : 'p-2 px-3'} rounded-md text-gray-700 dark:text-slate-100 transition-all border-black hover:border-green-500 active:border-green-500 dark:border-white
                 hover:bg-green-600 active:bg-green-700 hover:text-slate-100 dark:border-opacity-20 border border-opacity-20 hover:border-opacity-100 hover:dark:border-opacity-60 hover:text-opacity-100 hover:dark:text-opacity-100
+                    ${disabled ? 'pointer-events-none cursor-not-allowed text-opacity-20 dark:text-opacity-20 bg-green-900' : 'bg-transparent text-opacity-75'} `}
+                >
+                    {children}
+                </button>
+            )
+        break;
+        case "sidebar":
+            return (
+                <button onClick={onClick} className={`${className} ${padding ? padding : 'p-2 px-3'} rounded-md text-gray-700 dark:text-slate-100 transition-all 
+                dark:hover:bg-slate-200 dark:active:bg-slate-100 hover:text-slate-200 hover:bg-neutral-900 dark:hover:text-neutral-900 active:bg-neutral-950 hover:text-opacity-100 hover:dark:text-opacity-100
+                    ${disabled ? 'pointer-events-none cursor-not-allowed text-opacity-20 dark:text-opacity-20 dark:bg-neutral-900' : 'bg-transparent text-opacity-60 dark:text-opacity-60'} `}
+                >
+                    {children}
+                </button>
+            )
+        break;
+        case "sidebar-current":
+            return (
+                <button onClick={onClick} className={`${className} ${padding ? padding : 'p-2 px-2'} rounded-md text-gray-700 dark:text-slate-100 transition-all border-black dark:border-white
+                dark:hover:bg-slate-200 dark:active:bg-slate-100 hover:text-slate-200 hover:bg-neutral-900 dark:hover:text-neutral-900 active:bg-neutral-950 dark:border-opacity-20 border border-opacity-20 hover:border-opacity-100 hover:dark:border-opacity-60 hover:text-opacity-100 hover:dark:text-opacity-100
                     ${disabled ? 'pointer-events-none cursor-not-allowed text-opacity-20 dark:text-opacity-20 bg-green-900' : 'bg-transparent text-opacity-75'} `}
                 >
                     {children}
