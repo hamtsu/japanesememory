@@ -165,6 +165,7 @@ const HiraganaInput: FC = () => {
       spellCheck="false"
       value={romaji}
       onChange={handleInputChange}
+      autoFocus
     />
   );
 };

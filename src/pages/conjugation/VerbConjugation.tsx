@@ -4,9 +4,14 @@ import ThemeButton from "../../components/ThemeButton";
 
 import conjugationdata from "../../assets/conjugationdata.json";
 import HiraganaInput from "../../components/HiraganaInput";
-import { FaArrowRight, FaCheck } from "react-icons/fa";
-import { FaXmark } from "react-icons/fa6";
+import {
+  FaArrowRight,
+  FaCheck,
+  FaExclamationCircle,
+} from "react-icons/fa";
+import { FaPersonCircleExclamation, FaXmark } from "react-icons/fa6";
 import Button from "../../components/Button";
+import StreakCounter from "../../components/StreakCounter";
 
 const VerbConjugation = () => {
   const [currentVerb, setCurrentVerb] = useState<{
@@ -14,12 +19,15 @@ const VerbConjugation = () => {
     hiragana: string;
     te_form: string;
     english: string;
+    type: string;
   }>();
 
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
   const [isIncorrect, setIsIncorrect] = useState<boolean>(false);
 
-  const [enteredAnswer, setEnteredAnswer] = useState("")
+  const [currentStreak, setCurrentStreak] = useState<number>(0);
+
+  const [enteredAnswer, setEnteredAnswer] = useState("");
 
   function getRandomInt(min: number, max: number) {
     min = Math.ceil(min);
@@ -29,32 +37,44 @@ const VerbConjugation = () => {
 
   function nextRandomVerb() {
     const verbs = conjugationdata.verbs;
-    let randomVerb = verbs[0][getRandomInt(0, verbs[0].length - 1)];
-
-    if (currentVerb !== randomVerb) {
-      setCurrentVerb(randomVerb);
-    } else {
-      while (randomVerb === currentVerb) {
-        randomVerb = verbs[0][getRandomInt(0, verbs[0].length - 1)];
-      }
-    }
+    let randomVerb;
+    do {
+      randomVerb = verbs[getRandomInt(0, verbs.length - 1)];
+    } while (randomVerb === currentVerb);
+    setCurrentVerb(randomVerb);
   }
 
   const onSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const answer = e.target[0].value;
+    setEnteredAnswer(answer);
 
-    setEnteredAnswer(e.target[0].value)
-
-    if (e.target[0].value == currentVerb?.te_form) {
+    if (answer === currentVerb?.te_form) {
       setIsCorrect(true);
+      setCurrentStreak(currentStreak + 1);
     } else {
       setIsIncorrect(true);
+      setCurrentStreak(0);
     }
   };
 
   useEffect(() => {
-    // nextRandomVerb();
+    nextRandomVerb();
   }, []);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Enter" && (isCorrect || isIncorrect)) {
+        e.preventDefault();
+        setIsCorrect(false);
+        setIsIncorrect(false);
+        nextRandomVerb();
+      }
+    };
+
+    window.addEventListener("keydown", handler, false);
+    return () => window.removeEventListener("keydown", handler, false);
+  }, [isCorrect, isIncorrect]);
 
   return (
     <div className="w-screen h-screen flex">
@@ -76,13 +96,14 @@ const VerbConjugation = () => {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col w-full h-full items-center justify-center gap-20">
-          {currentVerb && (
+        <div className="flex flex-col w-full h-full items-center mt-24 gap-20">
+          {currentVerb ? (
             <>
+              <StreakCounter streak={currentStreak} />
               <div className="flex gap-2">
                 {isCorrect ? (
                   <>
-                    <div className="text-slate-100 bg-green-600 p-3 rounded-md">
+                    <div className="text-slate-100 bg-green-600 p-3 rounded-md antialiased animate-fade-in">
                       <h3 className="text-2xl">
                         <span className="opacity-70">you were</span>{" "}
                         <b>correct</b>
@@ -92,9 +113,9 @@ const VerbConjugation = () => {
                       </h1>
                     </div>
 
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-2 animate-fade-in">
                       <div className="text-slate-100 bg-green-600 p-3 rounded-md ">
-                        <h4 className="text-2xl">う-verb</h4>
+                        <h4 className="text-2xl">{currentVerb.type}</h4>
                         <p className="text-1xl font-extrabold ">Present</p>
                       </div>
 
@@ -105,7 +126,7 @@ const VerbConjugation = () => {
                   </>
                 ) : isIncorrect ? (
                   <>
-                    <div className="text-slate-100 bg-red-600 p-3 rounded-md">
+                    <div className="text-slate-100 bg-red-600 p-3 rounded-md antialiased animate-fade-in">
                       <h3 className="text-2xl">
                         <span className="opacity-70">you were</span>{" "}
                         <b>incorrect</b>
@@ -115,9 +136,9 @@ const VerbConjugation = () => {
                       </h1>
                     </div>
 
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-2 animate-fade-in">
                       <div className="text-slate-100 bg-red-600 p-3 rounded-md ">
-                        <h4 className="text-2xl">う-verb</h4>
+                        <h4 className="text-2xl">{currentVerb.type}</h4>
                         <p className="text-1xl font-extrabold ">Present</p>
                       </div>
 
@@ -128,7 +149,7 @@ const VerbConjugation = () => {
                   </>
                 ) : (
                   <>
-                    <div className="dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-3 rounded-md">
+                    <div className="dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-4 rounded-md antialiased animate-fade-in">
                       <h3 className="text-4xl font-extrabold">
                         {currentVerb.hiragana}
                       </h3>
@@ -137,7 +158,7 @@ const VerbConjugation = () => {
                       </h1>
                     </div>
 
-                    <div className="dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-3 rounded-md">
+                    <div className="dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-3 rounded-md animate-fade-in">
                       <h2 className="text-6xl font-bold">
                         {currentVerb.english}
                       </h2>
@@ -150,7 +171,21 @@ const VerbConjugation = () => {
 
               {isCorrect || isIncorrect ? (
                 <div>
-                    <p className="text-neutral-800/50 dark:text-slate-100/60 my-2">you entered <b className="text-neutral-800 dark:text-slate-100">{enteredAnswer}</b></p>
+                  <div className="flex my-2">
+                    <p className="text-neutral-800/50 dark:text-slate-100/60 ">
+                      you entered{" "}
+                      <b className="text-neutral-800 dark:text-slate-100">
+                        {enteredAnswer}
+                      </b>
+                    </p>
+
+                    <div className="flex-grow" />
+
+                    <p className="text-neutral-800/50 dark:text-slate-100/60 flex items-center gap-1 hover:text-red-500 hover:dark:text-red-500 hover:cursor-pointer transition-colors">
+                      <FaExclamationCircle size={15} /> report problem
+                    </p>
+                  </div>
+
                   <Button
                     type="secret-success"
                     className="w-96 font-bold text-lg flex items-center gap-1"
@@ -172,6 +207,14 @@ const VerbConjugation = () => {
                 </div>
               )}
             </>
+          ) : (
+            <div className="dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-4 rounded-md antialiased">
+              <FaPersonCircleExclamation
+                className="animate-fade-in"
+                size={30}
+              />
+              <h1 className="text-4xl ">Loading...</h1>
+            </div>
           )}
         </div>
       </div>
