@@ -162,13 +162,6 @@
             "type": "う-verb"
         },
         {
-            "kanji": "待つ",
-            "hiragana": "まつ",
-            "english": "to wait",
-            "te_form": "まって",
-            "type": "う-verb"
-        },
-        {
             "kanji": "生まれる",
             "hiragana": "うまれる",
             "english": "to be born",
@@ -190,25 +183,73 @@
             "type": "る-verb"
         },
         {
-            "kanji": "来る",
-            "hiragana": "くる",
-            "english": "to come",
-            "te_form": "きて",
-            "type": "irregular"
-        },
-        {
-            "kanji": "する",
-            "hiragana": "する",
-            "english": "to do",
-            "te_form": "して",
-            "type": "する"
-        },
-        {
             "kanji": "入る",
             "hiragana": "はいる",
             "english": "to enter",
             "te_form": "はいて",
             "type": "る-verb"
+        },
+        {
+            "kanji": "出る",
+            "hiragana": "でる",
+            "english": "to exit",
+            "te_form": "でて",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "着る",
+            "hiragana": "きる",
+            "english": "to wear",
+            "te_form": "きて",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "貰う",
+            "hiragana": "もらう",
+            "english": "to receive",
+            "te_form": "もらって",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "送る",
+            "hiragana": "おくる",
+            "english": "to send",
+            "te_form": "おくって",
+            "type": "る-verb"
+        },
+        {
+            "kanji": "待つ",
+            "hiragana": "まつ",
+            "english": "to wait",
+            "te_form": "まって",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "遊ぶ",
+            "hiragana": "あそぶ",
+            "english": "to play",
+            "te_form": "あそんで",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "飛ぶ",
+            "hiragana": "とぶ",
+            "english": "to fly",
+            "te_form": "とんで",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "泣く",
+            "hiragana": "なく",
+            "english": "to cry",
+            "te_form": "ないて",
+            "type": "う-verb"
+        },
+        {
+            "kanji": "死ぬ",
+            "hiragana": "しぬ",
+            "english": "to die",
+            "te_form": "しな"
         },
         {
             "kanji": "笑う",

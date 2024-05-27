@@ -53,7 +53,7 @@ const VerbConjugation = () => {
   };
 
   useEffect(() => {
-    nextRandomVerb();
+    // nextRandomVerb();
   }, []);
 
   return (
