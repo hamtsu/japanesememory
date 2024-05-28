@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: production-files
-          path: ./dist
+          path: release.zip
 
   deploy:
     name: Deploy
@@ -45,7 +45,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: production-files
-          path: ./dist
+          path: release.zip
           
       - name: unzip artifact for deployment
         run: unzip release.zip
