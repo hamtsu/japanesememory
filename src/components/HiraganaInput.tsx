@@ -119,6 +119,7 @@ const HiraganaInput: FC = () => {
     xtsu: "っ",
     xyu: "ゅ",
     tte: "って",
+    tta: "った",
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -156,7 +157,7 @@ const HiraganaInput: FC = () => {
   return (
     <input
       className="bg-neutral-900 text-slate-100 p-2 text-lg rounded-md w-full"
-      placeholder={"Enter answer"}
+      placeholder={"Enter answer in hiragana"}
       lang="ja"
       maxLength={40}
       autoCorrect="off"

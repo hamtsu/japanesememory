@@ -5,252 +5,468 @@
             "hiragana": "たべる",
             "english": "to eat",
             "te_form": "たべて",
-            "type": "う-verb"
+            "type": "る-verb",
+            "past_affirmative_plain": "たべた",
+            "past_affirmative_polite": "たべました",
+            "past_negative_plain": "たべなかった",
+            "past_negative_polite": "たべませんでした",
+            "present_negative_plain": "たべない",
+            "present_negative_polite": "たべません"
         },
         {
             "kanji": "見る",
             "hiragana": "みる",
             "english": "to see",
             "te_form": "みて",
-            "type": "る-verb"
+            "type": "る-verb",
+            "past_affirmative_plain": "みた",
+            "past_affirmative_polite": "みました",
+            "past_negative_plain": "みなかった",
+            "past_negative_polite": "みませんでした",
+            "present_negative_plain": "みない",
+            "present_negative_polite": "みません"
         },
         {
             "kanji": "行く",
             "hiragana": "いく",
             "english": "to go",
             "te_form": "いって",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "いった",
+            "past_affirmative_polite": "いきました",
+            "past_negative_plain": "いかなかった",
+            "past_negative_polite": "いきませんでした",
+            "present_negative_plain": "いかない",
+            "present_negative_polite": "いきません"
         },
         {
             "kanji": "来る",
             "hiragana": "くる",
             "english": "to come",
             "te_form": "きて",
-            "type": "irregular"
+            "type": "irregular",
+            "past_affirmative_plain": "きた",
+            "past_affirmative_polite": "きました",
+            "past_negative_plain": "こなかった",
+            "past_negative_polite": "きませんでした",
+            "present_negative_plain": "こない",
+            "present_negative_polite": "きません"
         },
         {
             "kanji": "する",
             "hiragana": "する",
             "english": "to do",
             "te_form": "して",
-            "type": "する"
+            "type": "irregular",
+            "past_affirmative_plain": "した",
+            "past_affirmative_polite": "しました",
+            "past_negative_plain": "しなかった",
+            "past_negative_polite": "しませんでした",
+            "present_negative_plain": "しない",
+            "present_negative_polite": "しません"
         },
         {
             "kanji": "飲む",
             "hiragana": "のむ",
             "english": "to drink",
             "te_form": "のんで",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "のんだ",
+            "past_affirmative_polite": "のみました",
+            "past_negative_plain": "のまなかった",
+            "past_negative_polite": "のみませんでした",
+            "present_negative_plain": "のまない",
+            "present_negative_polite": "のみません"
         },
         {
             "kanji": "書く",
             "hiragana": "かく",
             "english": "to write",
             "te_form": "かいて",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "かいた",
+            "past_affirmative_polite": "かきました",
+            "past_negative_plain": "かかなかった",
+            "past_negative_polite": "かきませんでした",
+            "present_negative_plain": "かかない",
+            "present_negative_polite": "かきません"
         },
         {
             "kanji": "読む",
             "hiragana": "よむ",
             "english": "to read",
             "te_form": "よんで",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "よんだ",
+            "past_affirmative_polite": "よみました",
+            "past_negative_plain": "よまなかった",
+            "past_negative_polite": "よみませんでした",
+            "present_negative_plain": "よまない",
+            "present_negative_polite": "よみません"
         },
         {
             "kanji": "聞く",
             "hiragana": "きく",
             "english": "to listen",
             "te_form": "きいて",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "きいた",
+            "past_affirmative_polite": "ききました",
+            "past_negative_plain": "きかなかった",
+            "past_negative_polite": "ききませんでした",
+            "present_negative_plain": "きかない",
+            "present_negative_polite": "ききません"
         },
         {
             "kanji": "買う",
             "hiragana": "かう",
             "english": "to buy",
             "te_form": "かって",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "かった",
+            "past_affirmative_polite": "かいました",
+            "past_negative_plain": "かわなかった",
+            "past_negative_polite": "かいませんでした",
+            "present_negative_plain": "かわない",
+            "present_negative_polite": "かいません"
         },
         {
             "kanji": "話す",
             "hiragana": "はなす",
             "english": "to speak",
             "te_form": "はなして",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "はなした",
+            "past_affirmative_polite": "はなしました",
+            "past_negative_plain": "はなさなかった",
+            "past_negative_polite": "はなしませんでした",
+            "present_negative_plain": "はなさない",
+            "present_negative_polite": "はなしません"
         },
         {
             "kanji": "教える",
             "hiragana": "おしえる",
             "english": "to teach",
             "te_form": "おしえて",
-            "type": "る-verb"
+            "type": "る-verb",
+            "past_affirmative_plain": "おしえた",
+            "past_affirmative_polite": "おしえました",
+            "past_negative_plain": "おしえなかった",
+            "past_negative_polite": "おしえませんでした",
+            "present_negative_plain": "おしえない",
+            "present_negative_polite": "おしえません"
         },
         {
             "kanji": "作る",
             "hiragana": "つくる",
             "english": "to make",
             "te_form": "つくって",
-            "type": "る-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "つくった",
+            "past_affirmative_polite": "つくりました",
+            "past_negative_plain": "つくらなかった",
+            "past_negative_polite": "つくりませんでした",
+            "present_negative_plain": "つくらない",
+            "present_negative_polite": "つくりません"
         },
         {
             "kanji": "使う",
             "hiragana": "つかう",
             "english": "to use",
             "te_form": "つかって",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "つかった",
+            "past_affirmative_polite": "つかいました",
+            "past_negative_plain": "つかわなかった",
+            "past_negative_polite": "つかいませんでした",
+            "present_negative_plain": "つかわない",
+            "present_negative_polite": "つかいません"
         },
         {
             "kanji": "走る",
             "hiragana": "はしる",
             "english": "to run",
             "te_form": "はしって",
-            "type": "る-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "はしった",
+            "past_affirmative_polite": "はしりました",
+            "past_negative_plain": "はしらなかった",
+            "past_negative_polite": "はしりませんでした",
+            "present_negative_plain": "はしらない",
+            "present_negative_polite": "はしりません"
         },
         {
             "kanji": "泳ぐ",
             "hiragana": "およぐ",
             "english": "to swim",
             "te_form": "およいで",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "およいだ",
+            "past_affirmative_polite": "およぎました",
+            "past_negative_plain": "およがなかった",
+            "past_negative_polite": "およぎませんでした",
+            "present_negative_plain": "およがない",
+            "present_negative_polite": "およぎません"
         },
         {
             "kanji": "立つ",
             "hiragana": "たつ",
             "english": "to stand",
             "te_form": "たって",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "たった",
+            "past_affirmative_polite": "たちました",
+            "past_negative_plain": "たたなかった",
+            "past_negative_polite": "たちませんでした",
+            "present_negative_plain": "たたない",
+            "present_negative_polite": "たちません"
         },
         {
             "kanji": "寝る",
             "hiragana": "ねる",
             "english": "to sleep",
             "te_form": "ねて",
-            "type": "る-verb"
+            "type": "る-verb",
+            "past_affirmative_plain": "ねた",
+            "past_affirmative_polite": "ねました",
+            "past_negative_plain": "ねなかった",
+            "past_negative_polite": "ねませんでした",
+            "present_negative_plain": "ねない",
+            "present_negative_polite": "ねません"
         },
         {
             "kanji": "起きる",
             "hiragana": "おきる",
             "english": "to wake up",
             "te_form": "おきて",
-            "type": "る-verb"
+            "type": "る-verb",
+            "past_affirmative_plain": "おきた",
+            "past_affirmative_polite": "おきました",
+            "past_negative_plain": "おきなかった",
+            "past_negative_polite": "おきませんでした",
+            "present_negative_plain": "おきない",
+            "present_negative_polite": "おきません"
         },
         {
             "kanji": "帰る",
             "hiragana": "かえる",
             "english": "to return",
             "te_form": "かえって",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "かえった",
+            "past_affirmative_polite": "かえりました",
+            "past_negative_plain": "かえらなかった",
+            "past_negative_polite": "かえりませんでした",
+            "present_negative_plain": "かえらない",
+            "present_negative_polite": "かえりません"
         },
         {
             "kanji": "分かる",
             "hiragana": "わかる",
             "english": "to understand",
             "te_form": "わかって",
-            "type": "る-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "わかった",
+            "past_affirmative_polite": "わかりました",
+            "past_negative_plain": "わからなかった",
+            "past_negative_polite": "わかりませんでした",
+            "present_negative_plain": "わからない",
+            "present_negative_polite": "わかりません"
         },
         {
             "kanji": "知る",
             "hiragana": "しる",
             "english": "to know",
             "te_form": "しって",
-            "type": "る-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "しった",
+            "past_affirmative_polite": "しりました",
+            "past_negative_plain": "しらなかった",
+            "past_negative_polite": "しりませんでした",
+            "present_negative_plain": "しらない",
+            "present_negative_polite": "しりません"
         },
         {
             "kanji": "会う",
             "hiragana": "あう",
             "english": "to meet",
             "te_form": "あって",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "あった",
+            "past_affirmative_polite": "あいました",
+            "past_negative_plain": "あわなかった",
+            "past_negative_polite": "あいませんでした",
+            "present_negative_plain": "あわない",
+            "present_negative_polite": "あいません"
         },
         {
             "kanji": "生まれる",
             "hiragana": "うまれる",
             "english": "to be born",
             "te_form": "うまれて",
-            "type": "る-verb"
+            "type": "る-verb",
+            "past_affirmative_plain": "うまれた",
+            "past_affirmative_polite": "うまれました",
+            "past_negative_plain": "うまれなかった",
+            "past_negative_polite": "うまれませんでした",
+            "present_negative_plain": "うまれない",
+            "present_negative_polite": "うまれません"
         },
         {
             "kanji": "なる",
             "hiragana": "なる",
             "english": "to become",
             "te_form": "なって",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "なった",
+            "past_affirmative_polite": "なりました",
+            "past_negative_plain": "ならなかった",
+            "past_negative_polite": "なりませんでした",
+            "present_negative_plain": "ならない",
+            "present_negative_polite": "なりません"
         },
         {
             "kanji": "使える",
             "hiragana": "つかえる",
             "english": "to be able to use",
             "te_form": "つかえて",
-            "type": "る-verb"
+            "type": "る-verb",
+            "past_affirmative_plain": "つかえた",
+            "past_affirmative_polite": "つかえました",
+            "past_negative_plain": "つかえなかった",
+            "past_negative_polite": "つかえませんでした",
+            "present_negative_plain": "つかえない",
+            "present_negative_polite": "つかえません"
         },
         {
             "kanji": "入る",
             "hiragana": "はいる",
             "english": "to enter",
-            "te_form": "はいて",
-            "type": "る-verb"
+            "te_form": "はいって",
+            "type": "う-verb",
+            "past_affirmative_plain": "はいった",
+            "past_affirmative_polite": "はいりました",
+            "past_negative_plain": "はいらなかった",
+            "past_negative_polite": "はいりませんでした",
+            "present_negative_plain": "はいらない",
+            "present_negative_polite": "はいりません"
         },
         {
             "kanji": "出る",
             "hiragana": "でる",
             "english": "to exit",
             "te_form": "でて",
-            "type": "る-verb"
+            "type": "る-verb",
+            "past_affirmative_plain": "でた",
+            "past_affirmative_polite": "でました",
+            "past_negative_plain": "でなかった",
+            "past_negative_polite": "でませんでした",
+            "present_negative_plain": "でない",
+            "present_negative_polite": "でません"
         },
         {
             "kanji": "着る",
             "hiragana": "きる",
             "english": "to wear",
             "te_form": "きて",
-            "type": "る-verb"
+            "type": "る-verb",
+            "past_affirmative_plain": "きた",
+            "past_affirmative_polite": "きました",
+            "past_negative_plain": "きなかった",
+            "past_negative_polite": "きませんでした",
+            "present_negative_plain": "きない",
+            "present_negative_polite": "きません"
         },
         {
             "kanji": "貰う",
             "hiragana": "もらう",
             "english": "to receive",
             "te_form": "もらって",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "もらった",
+            "past_affirmative_polite": "もらいました",
+            "past_negative_plain": "もらわなかった",
+            "past_negative_polite": "もらいませんでした",
+            "present_negative_plain": "もらわない",
+            "present_negative_polite": "もらいません"
         },
         {
             "kanji": "送る",
             "hiragana": "おくる",
             "english": "to send",
             "te_form": "おくって",
-            "type": "る-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "おくった",
+            "past_affirmative_polite": "おくりました",
+            "past_negative_plain": "おくらなかった",
+            "past_negative_polite": "おくりませんでした",
+            "present_negative_plain": "おくらない",
+            "present_negative_polite": "おくりません"
         },
         {
             "kanji": "待つ",
             "hiragana": "まつ",
             "english": "to wait",
             "te_form": "まって",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "まった",
+            "past_affirmative_polite": "まちました",
+            "past_negative_plain": "またなかった",
+            "past_negative_polite": "まちませんでした",
+            "present_negative_plain": "またない",
+            "present_negative_polite": "まちません"
         },
         {
             "kanji": "遊ぶ",
             "hiragana": "あそぶ",
             "english": "to play",
             "te_form": "あそんで",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "あそんだ",
+            "past_affirmative_polite": "あそびました",
+            "past_negative_plain": "あそばなかった",
+            "past_negative_polite": "あそびませんでした",
+            "present_negative_plain": "あそばない",
+            "present_negative_polite": "あそびません"
         },
         {
             "kanji": "飛ぶ",
             "hiragana": "とぶ",
             "english": "to fly",
             "te_form": "とんで",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "とんだ",
+            "past_affirmative_polite": "とびました",
+            "past_negative_plain": "とばなかった",
+            "past_negative_polite": "とびませんでした",
+            "present_negative_plain": "とばない",
+            "present_negative_polite": "とびません"
         },
         {
             "kanji": "泣く",
             "hiragana": "なく",
             "english": "to cry",
             "te_form": "ないて",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "ないた",
+            "past_affirmative_polite": "なきました",
+            "past_negative_plain": "なかなかった",
+            "past_negative_polite": "なきませんでした",
+            "present_negative_plain": "なかない",
+            "present_negative_polite": "なきません"
         },
         {
             "kanji": "笑う",
             "hiragana": "わらう",
             "english": "to laugh",
             "te_form": "わらって",
-            "type": "う-verb"
+            "type": "う-verb",
+            "past_affirmative_plain": "わらった",
+            "past_affirmative_polite": "わらいました",
+            "past_negative_plain": "わらわなかった",
+            "past_negative_polite": "わらいませんでした",
+            "present_negative_plain": "わらわない",
+            "present_negative_polite": "わらいません"
         }
     ]
 }

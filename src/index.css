@@ -28,6 +28,20 @@ body {
 }
 
 
+.custom-checkbox {
+  background-color: transparent;
+  border: 1px solid #d1d5db; /* Tailwind's gray-300 */
+  border-radius: 0.25rem; /* Tailwind's rounded */
+  width: 1rem; /* Tailwind's w-4 */
+  height: 1rem; /* Tailwind's h-4 */
+  accent-color: #dc2626; /* Tailwind's red-600 */
+}
+
+.custom-checkbox:focus {
+  outline: 2px solid #ef4444; /* Tailwind's ring-red-500 */
+  outline-offset: 2px;
+}
+
 @layer components {
     input[type=range] {
       @apply appearance-none bg-transparent w-full;
