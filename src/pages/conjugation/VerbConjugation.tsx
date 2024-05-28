@@ -17,7 +17,6 @@ import {
 import { FaPersonCircleExclamation, FaXmark } from "react-icons/fa6";
 import Button from "../../components/Button";
 import StreakCounter from "../../components/StreakCounter";
-import Checkbox from "../../components/Checkbox";
 import Divider from "../../components/Divider";
 import ToggleSwitch from "../../components/ToggleSwitch";
 import MultiSelect from "../../components/MultiSelect";
@@ -49,36 +48,110 @@ const VerbConjugation = () => {
 
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
 
+  const [defaultOptions, setDefaultOptions] = useState<{
+    "te-form": boolean;
+    "う-verbs": boolean;
+    "る-verbs": boolean;
+    irregular: boolean;
+    past: boolean;
+    present: boolean;
+    negative: boolean;
+    affirmative: boolean;
+    plain: boolean;
+  }>({
+    "te-form": true,
+    "う-verbs": true,
+    "る-verbs": true,
+    irregular: true,
+    past: true,
+    present: true,
+    negative: true,
+    affirmative: true,
+    plain: true,
+  });
+
   function getRandomInt(min: number, max: number) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  function randomConjugationType() {
-    const types = [
-      "te_form",
-      "past_affirmative_plain",
-      "past_affirmative_polite",
-      "past_negative_plain",
-      "past_negative_polite",
-      "present_negative_plain",
-      "present_negative_polite",
-    ];
+  function randomConjugationType(options: typeof defaultOptions) {
+    const types = [];
+
+    if (options["te-form"]) {
+      types.push("te_form");
+    }
+
+    if (options.past || options.present || options.irregular) {
+      if (!options.plain) {
+        if (options.affirmative) {
+          if (options.past) {
+            types.push("past_affirmative_polite");
+          }
+          if (options.present) {
+            types.push("present_affirmative_polite");
+          }
+        }
+
+        if (options.negative) {
+          if (options.past) {
+            types.push("past_negative_polite");
+          }
+          if (options.present) {
+            types.push("present_negative_polite");
+          }
+        }
+      }
+
+      if (options.plain) {
+        if (options.affirmative) {
+          if (options.past) {
+            types.push("past_affirmative_plain");
+          }
+          if (options.present) {
+            types.push("present_affirmative_plain");
+          }
+        }
+
+        if (options.negative) {
+          if (options.past) {
+            types.push("past_negative_plain");
+          }
+          if (options.present) {
+            types.push("present_negative_plain");
+          }
+        }
+      }
+    }
+
     return types[getRandomInt(0, types.length - 1)];
   }
 
-  function nextRandomVerb() {
+  function nextRandomVerb(options: typeof defaultOptions) {
     const verbs = conjugationdata.verbs;
-    const randomType = randomConjugationType();
-    let randomVerb;
+    const randomType = randomConjugationType(options);
+    let chosenVerb;
 
     do {
-      randomVerb = verbs[getRandomInt(0, verbs.length - 1)];
-    } while (randomVerb === currentVerb);
+      let randomVerb = verbs[getRandomInt(0, verbs.length - 1)];
 
-    setCurrentVerb(randomVerb);
+      if (randomVerb.type === "う-verb" && options["う-verbs"]) {
+        chosenVerb = randomVerb;
+      } 
+      if (randomVerb.type === "る-verb" && options["る-verbs"]) {
+        chosenVerb = randomVerb;
+      }
+      if (randomVerb.type === "irregular" && options.irregular) {
+        chosenVerb = randomVerb;
+      }
+
+      
+    } while (!chosenVerb || chosenVerb === currentVerb);
+
+    setCurrentVerb(chosenVerb);
     setCurrentConjugationType(randomType);
+    console.log(currentVerb)
   }
 
   const onSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -96,11 +169,39 @@ const VerbConjugation = () => {
   };
 
   const onOptionChange = (name: string, enabled: boolean) => {
-    console.log(e.target.id);
+    const options = JSON.parse(
+      localStorage.getItem("verb-conjugation-options")
+    );
+
+    options[name] = enabled;
+
+    localStorage.setItem("verb-conjugation-options", JSON.stringify(options));
+    setDefaultOptions(options);
   };
 
   useEffect(() => {
-    nextRandomVerb();
+    const options = localStorage.getItem("verb-conjugation-options");
+
+    if (!options) {
+      localStorage.setItem(
+        "verb-conjugation-options",
+        JSON.stringify({
+          "te-form": true,
+          "う-verbs": true,
+          "る-verbs": true,
+          irregular: true,
+          past: true,
+          present: true,
+          negative: true,
+          affirmative: true,
+          plain: true,
+        })
+      );
+    }
+
+    setDefaultOptions(JSON.parse(options));
+
+    nextRandomVerb(JSON.parse(options)); // Passed through as updated state cant be accessed from function for whatever reason
   }, []);
 
   useEffect(() => {
@@ -109,7 +210,9 @@ const VerbConjugation = () => {
         e.preventDefault();
         setIsCorrect(false);
         setIsIncorrect(false);
-        nextRandomVerb();
+        nextRandomVerb(
+          JSON.parse(localStorage.getItem("verb-conjugation-options"))
+        );
       }
     };
 
@@ -248,7 +351,7 @@ const VerbConjugation = () => {
                     onClick={() => {
                       setIsCorrect(false);
                       setIsIncorrect(false);
-                      nextRandomVerb();
+                      nextRandomVerb(defaultOptions);
                     }}
                   >
                     Next verb <FaArrowRight />
@@ -287,15 +390,29 @@ const VerbConjugation = () => {
 
               <div className="flex gap-3">
                 <div className="flex flex-col gap-2 h-fit dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-4 rounded-md animate-fade-in-late antialiased">
-                <div>
+                  <div>
                     <h3 className="text-2xl font-bold">Presets</h3>
                     <p className="text-lg opacity-50">
                       pick a preset of options below
                     </p>
                   </div>
 
-                  <Dropdown items={[ { name: "Te-Form only", callback: () => console.log("sigma")}, { name: "All but Te-Form", callback: () => console.log("sigma") }]}>
-                    <Button type="secondary" className="flex items-center gap-1">
+                  <Dropdown
+                    items={[
+                      {
+                        name: "Te-Form only",
+                        callback: () => console.log("test"),
+                      },
+                      {
+                        name: "All but Te-Form",
+                        callback: () => console.log("test"),
+                      },
+                    ]}
+                  >
+                    <Button
+                      type="secondary"
+                      className="flex items-center gap-1"
+                    >
                       Presets <FaAngleDown />
                     </Button>
                   </Dropdown>
@@ -311,7 +428,8 @@ const VerbConjugation = () => {
                   <ToggleSwitch
                     onText="Plain"
                     offText="Polite"
-                    handleToggle={(isOn) => console.log(isOn)}
+                    handleToggle={(isOn) => onOptionChange("plain", isOn)}
+                    defaultOn={defaultOptions.plain}
                   />
                   <Divider className="my-2" />
 
@@ -323,11 +441,14 @@ const VerbConjugation = () => {
                   </div>
                   <MultiSelect
                     items={[
-                      { name: "Affirmative", defaultOn: true },
-                      { name: "Negative", defaultOn: true },
+                      {
+                        name: "Affirmative",
+                        defaultOn: defaultOptions.affirmative,
+                      },
+                      { name: "Negative", defaultOn: defaultOptions.negative },
                     ]}
                     handleToggleItem={(name, toggle) =>
-                      console.log(name, toggle)
+                      onOptionChange(name.toLowerCase(), toggle)
                     }
                   />
                   <Divider className="my-2" />
@@ -340,12 +461,21 @@ const VerbConjugation = () => {
                   </div>
                   <MultiSelect
                     items={[
-                      { name: "う-verbs", defaultOn: true },
-                      { name: "る-verbs", defaultOn: true },
-                      { name: "Irregular", defaultOn: true },
+                      {
+                        name: "う-verbs",
+                        defaultOn: defaultOptions["う-verbs"],
+                      },
+                      {
+                        name: "る-verbs",
+                        defaultOn: defaultOptions["る-verbs"],
+                      },
+                      {
+                        name: "Irregular",
+                        defaultOn: defaultOptions.irregular,
+                      },
                     ]}
                     handleToggleItem={(name, toggle) =>
-                      console.log(name, toggle)
+                      onOptionChange(name.toLowerCase(), toggle)
                     }
                   />
                   <Divider className="my-2" />
@@ -358,12 +488,12 @@ const VerbConjugation = () => {
                   </div>
                   <MultiSelect
                     items={[
-                      { name: "Te-form", defaultOn: true },
-                      { name: "Past", defaultOn: true },
-                      { name: "Present", defaultOn: true },
+                      { name: "Te-form", defaultOn: defaultOptions["te-form"] },
+                      { name: "Past", defaultOn: defaultOptions.past },
+                      { name: "Present", defaultOn: defaultOptions.present },
                     ]}
                     handleToggleItem={(name, toggle) =>
-                      console.log(name, toggle)
+                      onOptionChange(name.toLowerCase(), toggle)
                     }
                   />
                 </div>
