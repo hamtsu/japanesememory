@@ -1,6 +1,6 @@
 # Japanese Memory (name subject to change)
 
-Japanese Memory is a directory with various useful tools to for learning the language.
+Japanese Memory is a directory with various useful tools for learning the language.
 
 ## Contributing
 
