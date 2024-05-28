@@ -34,12 +34,17 @@ export default {
       "animation": {
         "fade-in": "fade-in 0.5s ease-in-out",
         "fade-in-late": "fade-in 1s ease-in-out",
+        "error": "error 0.5s ease-in-out"
       },
       // Keyframes for animation
       "keyframes":{
         "fade-in": {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 },
+        },
+        "error": {
+          "0%": { transform: "translateX(5px)", backgroundColor: "rgb(255, 71, 77)", color: "white" },
+          "100%": { transform: "translateX(0)" }
         }
       },
     },

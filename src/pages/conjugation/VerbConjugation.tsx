@@ -5,17 +5,23 @@ import ThemeButton from "../../components/ThemeButton";
 import conjugationdata from "../../assets/conjugationdata.json";
 import HiraganaInput from "../../components/HiraganaInput";
 import {
+  FaAngleDown,
   FaArrowRight,
+  FaCaretDown,
   FaCheck,
   FaCog,
   FaExclamationCircle,
   FaFlag,
+  FaQuestion,
 } from "react-icons/fa";
 import { FaPersonCircleExclamation, FaXmark } from "react-icons/fa6";
 import Button from "../../components/Button";
 import StreakCounter from "../../components/StreakCounter";
 import Checkbox from "../../components/Checkbox";
 import Divider from "../../components/Divider";
+import ToggleSwitch from "../../components/ToggleSwitch";
+import MultiSelect from "../../components/MultiSelect";
+import Dropdown from "../../components/Dropdown";
 
 const VerbConjugation = () => {
   const [currentVerb, setCurrentVerb] = useState<{
@@ -89,7 +95,7 @@ const VerbConjugation = () => {
     }
   };
 
-  const onOptionChange = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const onOptionChange = (name: string, enabled: boolean) => {
     console.log(e.target.id);
   };
 
@@ -249,18 +255,20 @@ const VerbConjugation = () => {
                   </Button>
                 </div>
               ) : (
-                <div className="dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-2 rounded-md w-96">
-                  <form onSubmit={onSubmit}>
-                    <HiraganaInput />
-                    <input type="submit" className="hidden" />
-                  </form>
+                <div className="flex gap-2 ">
+                  <div className="dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-2 rounded-md w-96">
+                    <form onSubmit={onSubmit}>
+                      <HiraganaInput />
+                      <input type="submit" className="hidden" />
+                    </form>
+                  </div>
                 </div>
               )}
             </>
           ) : isSettingsOpen ? (
             <div className="flex flex-col gap-3">
               <div className="flex gap-2">
-                <div className="flex gap-2 items-center w-fit dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-4 rounded-md animate-fade-in antialiased">
+                <div className="flex gap-4 items-center w-fit dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-4 rounded-md animate-fade-in antialiased">
                   <FaCog
                     className="animate-fade-in-late opacity-70"
                     size={30}
@@ -268,76 +276,97 @@ const VerbConjugation = () => {
                   <h1 className="text-4xl font-bold">Verb settings</h1>
                 </div>
 
-                <div className="w-4 bg-slate-200 dark:bg-neutral-850 rounded-md animate-fade-in antialiased" />
-
-                <Button type="secret-error" onClick={() => setIsSettingsOpen(false)} className="w-12 flex items-center">
+                <Button
+                  type="secret-error"
+                  onClick={() => setIsSettingsOpen(false)}
+                  className="h-fit w-fit flex items-center"
+                >
                   <FaXmark size={30} />
                 </Button>
               </div>
-              <div className="flex w-96 flex-col gap-2 dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-4 rounded-md animate-fade-in antialiased">
-                <h3 className="text-2xl font-bold opacity-80">Verb type</h3>
-                <Checkbox
-                  id="u-verbs"
-                  label="う-verbs"
-                  onChange={onOptionChange}
-                />
-                <Checkbox
-                  id="ru-verbs"
-                  label="る-verbs"
-                  onChange={onOptionChange}
-                />
-                <Checkbox
-                  id="irregular-verbs"
-                  label="irregular"
-                  onChange={onOptionChange}
-                />
-                <Divider />
 
-                <h3 className="text-2xl mt-3 font-bold opacity-80">
-                  Verb tense
-                </h3>
-                <Checkbox
-                  id="te-form"
-                  label="(て) Te-form"
-                  onChange={onOptionChange}
-                />
-                <Checkbox
-                  id="past-tense"
-                  label="past tense"
-                  onChange={onOptionChange}
-                />
-                <Checkbox
-                  id="present-tense"
-                  label="present tense"
-                  onChange={onOptionChange}
-                />
-                <Divider />
+              <div className="flex gap-3">
+                <div className="flex flex-col gap-2 h-fit dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-4 rounded-md animate-fade-in-late antialiased">
+                <div>
+                    <h3 className="text-2xl font-bold">Presets</h3>
+                    <p className="text-lg opacity-50">
+                      pick a preset of options below
+                    </p>
+                  </div>
 
-                <h3 className="text-2xl mt-3 font-bold opacity-80">
-                  Verb assertion
-                </h3>
-                <Checkbox
-                  id="affirmative"
-                  label="affirmative"
-                  onChange={onOptionChange}
-                />
-                <Checkbox
-                  id="negative"
-                  label="negative"
-                  onChange={onOptionChange}
-                />
-                <Divider />
+                  <Dropdown items={[ { name: "Te-Form only", callback: () => console.log("sigma")}, { name: "All but Te-Form", callback: () => console.log("sigma") }]}>
+                    <Button type="secondary" className="flex items-center gap-1">
+                      Presets <FaAngleDown />
+                    </Button>
+                  </Dropdown>
+                </div>
 
-                <h3 className="text-2xl mt-3 font-bold opacity-80">
-                  Verb formality
-                </h3>
-                <Checkbox id="plain" label="plain" onChange={onOptionChange} />
-                <Checkbox
-                  id="polite"
-                  label="polite"
-                  onChange={onOptionChange}
-                />
-                <Divider />
+                <div className="flex w-96 flex-col gap-2 dark:text-slate-100 bg-slate-200 dark:bg-neutral-800 p-4 rounded-md animate-fade-in-late antialiased">
+                  <div>
+                    <h3 className="text-2xl font-bold">Verb formality</h3>
+                    <p className="text-lg opacity-50">
+                      pick either plain or polite form
+                    </p>
+                  </div>
+                  <ToggleSwitch
+                    onText="Plain"
+                    offText="Polite"
+                    handleToggle={(isOn) => console.log(isOn)}
+                  />
+                  <Divider className="my-2" />
+
+                  <div>
+                    <h3 className="text-2xl font-bold">Verb assertion</h3>
+                    <p className="text-lg opacity-50">
+                      pick either affirmative or negative or both
+                    </p>
+                  </div>
+                  <MultiSelect
+                    items={[
+                      { name: "Affirmative", defaultOn: true },
+                      { name: "Negative", defaultOn: true },
+                    ]}
+                    handleToggleItem={(name, toggle) =>
+                      console.log(name, toggle)
+                    }
+                  />
+                  <Divider className="my-2" />
+
+                  <div>
+                    <h3 className="text-2xl font-bold">Verb type</h3>
+                    <p className="text-lg opacity-50">
+                      pick the type of verbs to practice
+                    </p>
+                  </div>
+                  <MultiSelect
+                    items={[
+                      { name: "う-verbs", defaultOn: true },
+                      { name: "る-verbs", defaultOn: true },
+                      { name: "Irregular", defaultOn: true },
+                    ]}
+                    handleToggleItem={(name, toggle) =>
+                      console.log(name, toggle)
+                    }
+                  />
+                  <Divider className="my-2" />
+
+                  <div>
+                    <h3 className="text-2xl font-bold">Verb tense</h3>
+                    <p className="text-lg opacity-50">
+                      pick the tense of verbs to practice
+                    </p>
+                  </div>
+                  <MultiSelect
+                    items={[
+                      { name: "Te-form", defaultOn: true },
+                      { name: "Past", defaultOn: true },
+                      { name: "Present", defaultOn: true },
+                    ]}
+                    handleToggleItem={(name, toggle) =>
+                      console.log(name, toggle)
+                    }
+                  />
+                </div>
               </div>
             </div>
           ) : (
