@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./dist
+        run: zip release.zip ./* -r
     
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
@@ -45,7 +45,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: production-files
-          path: .
+          path: ./
           
       - name: unzip artifact for deployment
         run: unzip release.zip
