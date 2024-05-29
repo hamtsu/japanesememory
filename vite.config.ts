@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
   plugins: [react()],
-  // base: "/japanesememory/"
+  base: "/japanesememory/",
   build: {
     outDir: 'dist'
   }
