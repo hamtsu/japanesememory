@@ -16,12 +16,12 @@ function App() {
     <GlobalContext.Provider value={{ listView, setListView }}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/kanji" element={<Kanji />} />
-          <Route path="/conjugation/verb" element={<VerbConjugation />} />
-          <Route path="/conjugation/adjectives" element={<AdjectiveConjugation/>} />
-          <Route path="/particles" element={<Particles />} />
+          <Route path="/japanesememory" element={<Home />} />
+          <Route path="/japanesememory/about" element={<About />} />
+          <Route path="/japanesememory/kanji" element={<Kanji />} />
+          <Route path="/japanesememory/conjugation/verb" element={<VerbConjugation />} />
+          <Route path="/japanesememory/conjugation/adjectives" element={<AdjectiveConjugation/>} />
+          <Route path="/japanesememory/particles" element={<Particles />} />
         </Routes>
         </BrowserRouter>
     </GlobalContext.Provider>
